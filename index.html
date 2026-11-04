@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0b12">
+
+    <title>Alexia Geschwind | Serviços Criativos</title>
+    <meta name="description"
+        content="Design gráfico, captação e edição de fotos e vídeos, cobertura Storymaker e criação de landing pages por Alexia Geschwind.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0b0b12;
+            --text: #ffffff;
+            --muted: #bbb8c9;
+            --pink: #ff398d;
+            --purple: #9557ff;
+            --orange: #ff995e;
+            --border: rgba(255, 255, 255, .13);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* FUNDO ANIMADO */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(110px);
+            opacity: .34;
+            animation: floating 22s ease-in-out infinite alternate;
+        }
+
+        .orb:nth-child(1) {
+            background: #fa0067;
+            width: 580px;
+            height: 580px;
+            top: -250px;
+            left: -230px;
+        }
+
+        .orb:nth-child(2) {
+            background: #6500ff;
+            width: 680px;
+            height: 680px;
+            right: -300px;
+            top: 25%;
+            animation-delay: -8s;
+        }
+
+        .orb:nth-child(3) {
+            background: #ff7300;
+            width: 450px;
+            height: 450px;
+            left: 25%;
+            bottom: -320px;
+            animation-delay: -12s;
+        }
+
+        @keyframes floating {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(90px, -70px);
+            }
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: .045;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* CONTAINER */
+
+        .container {
+            width: min(1160px, 92%);
+            margin: auto;
+        }
+
+        /* CABEÇALHO */
+
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -.8px;
+        }
+
+        .logo span {
+            color: var(--pink);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            font-size: 13px;
+            border: 1px solid var(--border);
+            padding: 12px 20px;
+            border-radius: 50px;
+            transition: .3s;
+        }
+
+        .nav-link:hover {
+            background: #fff;
+            color: #111;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 105px 0 75px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 9px 17px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: rgba(255, 255, 255, .055);
+            color: #f3c3dc;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 7vw, 85px);
+            line-height: 1.04;
+            letter-spacing: -3px;
+            font-weight: 700;
+        }
+
+        .gradient-text {
+            background: linear-gradient(95deg, #ff6aaf, #b289ff, #ffb17c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 620px;
+            margin: 26px auto 0;
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* TÍTULOS DAS SEÇÕES */
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            letter-spacing: -1px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        /* CARDS DE SERVIÇOS */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            padding: 35px;
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, .055);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            transition: transform .35s, background .35s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, .085);
+        }
+
+        .card.featured {
+            border-color: rgba(255, 80, 155, .45);
+            background: linear-gradient(140deg,
+                    rgba(255, 45, 130, .11),
+                    rgba(145, 60, 255, .075));
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 15px;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            background: rgba(255, 255, 255, .10);
+        }
+
+        .tag {
+            color: #ffd1e5;
+            background: rgba(255, 66, 143, .15);
+            border: 1px solid rgba(255, 66, 143, .20);
+            border-radius: 30px;
+            padding: 8px 12px;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .card h3 {
+            font-size: 27px;
+            letter-spacing: -.7px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .price {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 22px;
+            letter-spacing: -1px;
+        }
+
+        .price small {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+
+        .price.quote {
+            font-size: 22px;
+        }
+
+        .list {
+            list-style: none;
+            display: grid;
+            gap: 13px;
+            margin-bottom: 30px;
+        }
+
+        .list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #e5e2ec;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .list li::before {
+            content: "✓";
+            color: #ff78b2;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* BOTÕES */
+
+        .button {
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            padding: 15px 18px;
+            border-radius: 50px;
+            background: #fff;
+            color: #111;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: auto;
+            transition: .3s;
+        }
+
+        .button:hover {
+            background: var(--pink);
+            color: #fff;
+        }
+
+        .featured .button {
+            background: linear-gradient(100deg, #ff408e, #aa60ff);
+            color: #fff;
+        }
+
+        .featured .button:hover {
+            filter: brightness(1.15);
+        }
+
+        /* TABELA STORYMAKER */
+
+        .story-section {
+            padding: 100px 0 0;
+        }
+
+        .pricing-table {
+            max-width: 850px;
+            margin: auto;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .055);
+            backdrop-filter: blur(18px);
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .pricing-row {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 27px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-row:hover {
+            background: rgba(255, 255, 255, .045);
+        }
+
+        .pricing-row strong {
+            font-size: 17px;
+        }
+
+        .pricing-row span {
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .pricing-row a {
+            padding: 10px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+            font-size: 12px;
+            transition: .3s;
+            text-align: center;
+        }
+
+        .pricing-row a:hover {
+            background: var(--pink);
+        }
+
+        .note {
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 740px;
+            margin: 25px auto 0;
+        }
+
+        /* CONTATO */
+
+        .contact {
+            margin-top: 105px;
+            text-align: center;
+            padding: 65px 30px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, .05);
+        }
+
+        .contact h2 {
+            font-size: clamp(30px, 5vw, 48px);
+            letter-spacing: -1.5px;
+        }
+
+        .contact p {
+            color: var(--muted);
+            margin: 15px auto 30px;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .contact-buttons .button {
+            width: auto;
+            min-width: 195px;
+            margin-top: 0;
+            padding: 15px 30px;
+        }
+
+        .button-instagram {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, .3);
+        }
+
+        .button-instagram:hover {
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            padding: 45px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            color: #aaa4b8;
+            font-size: 12px;
+        }
+
+        .social-link {
+            color: #d9c6ef;
+            text-decoration: none;
+            transition: color .3s;
+        }
+
+        .social-link:hover {
+            color: #ff398d;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media(max-width: 750px) {
+            .hero {
+                padding: 75px 0 55px;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 28px;
+            }
+
+            .story-section {
+                padding-top: 75px;
+            }
+
+            .pricing-row {
+                grid-template-columns: 1fr auto;
+                gap: 10px;
+                padding: 19px;
+            }
+
+            .pricing-row a {
+                grid-column: 1 / -1;
+            }
+
+            .contact {
+                margin-top: 75px;
+                padding: 45px 20px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-actions {
+                gap: 8px;
+            }
+
+            .nav-link {
+                font-size: 11px;
+                padding: 10px 12px;
+            }
+
+            .card-top {
+                flex-wrap: wrap;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-buttons .button {
+                width: 100%;
+            }
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FUNDO -->
+
+    <div class="background" aria-hidden="true">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+        <nav class="container nav">
+
+            <div class="logo">
+                Alexia<span>.</span>Geschwind
+            </div>
+
+            <div class="nav-actions">
+
+                <a href="https://www.instagram.com/alexia.dsgnr/" target="_blank" rel="noopener noreferrer"
+                    class="nav-link">
+                    Instagram ↗
+                </a>
+
+                <a href="#contato" class="nav-link">
+                    Solicitar orçamento
+                </a>
+
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- APRESENTAÇÃO -->
+
+        <section class="hero">
+
+            <div class="eyebrow">
+                Design • Conteúdo • Digital
+            </div>
+
+            <h1>
+                Criatividade que<br>
+                <span class="gradient-text">
+                    ganha forma.
+                </span>
+            </h1>
+
+            <p>
+                Design, fotografia, vídeo e experiências digitais
+                pensadas para transformar ideias em projetos
+                visuais com identidade e propósito.
+            </p>
+
+        </section>
+
+        <!-- SERVIÇOS -->
+
+        <section id="servicos">
+
+            <div class="section-heading">
+                <h2>Meus serviços</h2>
+                <p>
+                    Soluções criativas para marcas,
+                    negócios e eventos.
+                </p>
+            </div>
+
+            <div class="services">
+
+                <!-- DESIGN GRÁFICO -->
+
+                <article class="card">
+
+                    <div class="card-top">
+                        <div class="card-icon">✦</div>
+                        <div class="tag">
+                            Identidade & Comunicação
+                        </div>
+                    </div>
+
+                    <h3>Design Gráfico</h3>
+
+                    <p class="description">
+                        Criação de materiais visuais para comunicar
+                        a essência da sua marca com personalidade.
+                    </p>
+
+                    <div class="price quote">
+                        Orçamento personalizado
+                    </div>
+
+                    <ul class="list">
+                        <li>Identidade visual e branding</li>
+                        <li>Logotipos e suas variações</li>
+                        <li>Posts para redes sociais</li>
+                        <li>Materiais gráficos e digitais</li>
+                        <li>Peças para campanhas e divulgação</li>
+                    </ul>
+
+                    <a class="button" data-service="Design Gráfico" href="#">
+                        Solicitar orçamento
+                    </a>
+
+                </article>
+
+                <!-- FOTO E VÍDEO -->
+
+                <article class="card">
+
+                    <div class="card-top">
+                        <div class="card-icon">◉</div>
+                        <div class="tag">
+                            Produção Audiovisual
+                        </div>
+                    </div>
+
+                    <h3>Foto & Vídeo</h3>
+
+                    <p class="description">
+                        Captação e edição de conteúdos para
+                        valorizar produtos, serviços,
+                        pessoas e marcas.
+                    </p>
+
+                    <div class="price quote">
+                        Orçamento personalizado
+                    </div>
+
+                    <ul class="list">
+                        <li>Captação de fotos e vídeos</li>
+                        <li>Edição e tratamento fotográfico</li>
+                        <li>Edição de vídeos e Reels</li>
+                        <li>Conteúdos para redes sociais</li>
+                        <li>Produção de materiais institucionais</li>
+                    </ul>
+
+                    <a class="button" data-service="Foto e Vídeo" href="#">
+                        Solicitar orçamento
+                    </a>
+
+                </article>
+
+                <!-- STORYMAKER -->
+
+                <article class="card featured">
+
+                    <div class="card-top">
+                        <div class="card-icon">▣</div>
+                        <div class="tag">
+                            Cobertura em Tempo Real
+                        </div>
+                    </div>
+
+                    <h3>Storymaker</h3>
+
+                    <p class="description">
+                        Registro dos momentos mais importantes
+                        do seu evento, com um olhar criativo
+                        e compartilhamento em tempo real.
+                    </p>
+
+                    <div class="price">
+                        R$ 200
+                        <small>/ a partir de 1 hora</small>
+                    </div>
+
+                    <ul class="list">
+                        <li>Captação com celular</li>
+                        <li>Fotos e vídeos dos principais momentos</li>
+                        <li>Edição básica de stories</li>
+                        <li>Publicação em tempo real no Instagram</li>
+                        <li>Pacotes de 1 a 3 horas</li>
+                    </ul>
+
+                    <a class="button" href="#valores">
+                        Conferir valores
+                    </a>
+
+                </article>
+
+                <!-- LANDING PAGES -->
+
+                <article class="card">
+
+                    <div class="card-top">
+                        <div class="card-icon">⌘</div>
+                        <div class="tag">
+                            Web Design
+                        </div>
+                    </div>
+
+                    <h3>Landing Pages</h3>
+
+                    <p class="description">
+                        Páginas digitais que unem estética,
+                        organização e experiência do usuário
+                        para apresentar seu negócio.
+                    </p>
+
+                    <div class="price quote">
+                        Orçamento personalizado
+                    </div>
+
+                    <ul class="list">
+                        <li>Design de interfaces personalizadas</li>
+                        <li>Criação de landing pages</li>
+                        <li>Layouts responsivos</li>
+                        <li>Estruturação de conteúdo</li>
+                        <li>Botões e formulários de contato</li>
+                    </ul>
+
+                    <a class="button" data-service="Landing Pages" href="#">
+                        Solicitar orçamento
+                    </a>
+
+                </article>
+
+            </div>
+        </section>
+
+        <!-- VALORES STORYMAKER -->
+
+        <section class="story-section" id="valores">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    Cobertura de eventos
+                </div>
+
+                <h2>Investimento Storymaker</h2>
+
+                <p>
+                    Escolha a duração ideal para o seu evento.
+                </p>
+
+            </div>
+
+            <div class="pricing-table">
+
+                <div class="pricing-row">
+                    <strong>1 hora</strong>
+                    <span>R$ 200</span>
+
+                    <a href="#" data-story="1 hora" data-price="200">
+                        Escolher pacote
+                    </a>
+                </div>
+
+                <div class="pricing-row">
+                    <strong>1 hora e 30 minutos</strong>
+                    <span>R$ 250</span>
+
+                    <a href="#" data-story="1h30" data-price="250">
+                        Escolher pacote
+                    </a>
+                </div>
+
+                <div class="pricing-row">
+                    <strong>2 horas</strong>
+                    <span>R$ 300</span>
+
+                    <a href="#" data-story="2 horas" data-price="300">
+                        Escolher pacote
+                    </a>
+                </div>
+
+                <div class="pricing-row">
+                    <strong>2 horas e 30 minutos</strong>
+                    <span>R$ 350</span>
+
+                    <a href="#" data-story="2h30" data-price="350">
+                        Escolher pacote
+                    </a>
+                </div>
+
+                <div class="pricing-row">
+                    <strong>3 horas</strong>
+                    <span>R$ 400</span>
+
+                    <a href="#" data-story="3 horas" data-price="400">
+                        Escolher pacote
+                    </a>
+                </div>
+
+            </div>
+
+            <p class="note">
+                Os pacotes incluem cobertura mobile e publicação
+                de stories em tempo real, mediante acesso autorizado
+                à conta do cliente.
+                Reels elaborados e serviços adicionais
+                são orçados separadamente.
+                Horas extras: R$ 100 por hora,
+                mediante disponibilidade.
+            </p>
+
+        </section>
+
+        <!-- CONTATO -->
+
+        <section class="contact" id="contato">
+
+            <div class="eyebrow">
+                Vamos criar algo juntos?
+            </div>
+
+            <h2>
+                Sua ideia merece<br>
+                <span class="gradient-text">
+                    ganhar vida.
+                </span>
+            </h2>
+
+            <p>
+                Entre em contato e conte um pouco
+                sobre o seu projeto. Vou preparar uma
+                proposta de acordo com o que você precisa.
+            </p>
+
+            <div class="contact-buttons">
+
+                <a class="button" data-service="um projeto personalizado" href="#">
+                    Conversar no WhatsApp
+                </a>
+
+                <a class="button button-instagram" href="https://www.instagram.com/alexia.dsgnr/" target="_blank"
+                    rel="noopener noreferrer">
+                    Ver meu Instagram ↗
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+
+    <footer class="container">
+
+        <span>
+            © 2026 Alexia Geschwind
+        </span>
+
+        <a href="https://www.instagram.com/alexia.dsgnr/" target="_blank" rel="noopener noreferrer" class="social-link">
+            @alexia.dsgnr ↗
+        </a>
+
+        <span>
+            Design • Conteúdo • Experiências Digitais
+        </span>
+
+    </footer>
+
+    <!-- WHATSAPP -->
+
+    <script>
+
+        const contactLink = "https://wa.me/5555991546573";
+
+        function openContact(message) {
+
+            const url = contactLink +
+                "?text=" + encodeURIComponent(message);
+
+            window.open(
+                url,
+                "_blank",
+                "noopener,noreferrer"
+            );
+        }
+
+        // SOLICITAÇÃO DE ORÇAMENTO
+
+        document.querySelectorAll("[data-service]")
+            .forEach(link => {
+
+                link.addEventListener("click", event => {
+
+                    event.preventDefault();
+
+                    const service = link.dataset.service;
+
+                    openContact(
+                        "Olá, Alexia! Gostaria de solicitar " +
+                        "um orçamento para " + service + "."
+                    );
+
+                });
+
+            });
+
+        // ESCOLHA DE PACOTE STORYMAKER
+
+        document.querySelectorAll("[data-story]")
+            .forEach(link => {
+
+                link.addEventListener("click", event => {
+
+                    event.preventDefault();
+
+                    const duration = link.dataset.story;
+                    const price = link.dataset.price;
+
+                    openContact(
+                        "Olá, Alexia! Tenho interesse na " +
+                        "cobertura Storymaker de " + duration +
+                        ", no valor de R$ " + price +
+                        ". Gostaria de consultar sua disponibilidade."
+                    );
+
+                });
+
+            });
+
+    </script>
+
+</body>
+
+</html>
